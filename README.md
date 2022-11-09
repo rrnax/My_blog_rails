@@ -1,4 +1,4 @@
-# README
+# MyBlog App
 
 This app is about my vision of blogs app.
 
