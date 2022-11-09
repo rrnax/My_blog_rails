@@ -1,0 +1,11 @@
+<%= form_with model: [ @post, @post.comments.build ] do |f| %>
+
+    <div class="d-flex justify-content-center">
+      <%= f.text_area :content, size:"80x4", class:"form-control", placeholder: "Komentarz" %>
+    </div>
+      <%= f.number_field :user_id, id: :post_user_id, class:"form-control", value: current_user.id, type: :hidden%>
+    <div class="text-center">
+      <%= f.submit "Dodaj komentarz", class:"btn btn-warning fs-6 my-2" %>
+    </div>
+
+<% end %>

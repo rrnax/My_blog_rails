@@ -1,0 +1,11 @@
+<div class="container" style="font-family: 'Peralta', cursive;">
+  <div class="text-center my-3">
+    <h1 class="d-inline">Moje wpisy</h1>
+    <%= link_to " + Dodaj nowy", new_admin_post_path, class:"btn btn-warning d-inline float-end fs-5" %>
+  </div>
+  <% if @myposts.empty? %>
+    <h3 class="text-center text-danger my-4">Nie masz jeszcze żadnych postów na swoim koncie!</h3>
+  <% else %>
+    <%=  render @myposts %>
+  <% end %>
+</div>

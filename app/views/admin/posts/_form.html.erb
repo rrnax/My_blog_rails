@@ -1,0 +1,22 @@
+<%= form_with model: [:admin, @post] do |f| %>
+  <div class="card-body">
+    <%= f.text_field :title, class:"form-control", placeholder:"Tytuł" %>
+    <% @post.errors.full_messages_for(:title).each do |msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <br>
+    <%= f.text_area :content, size: "70x10", class:"form-control", placeholder:"Treść" %>
+    <% @post.errors.full_messages_for(:content).each do |msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <br>
+    <%= f.number_field :user_id, id: :post_user_id, class:"form-control", value: current_user.id, type: :hidden%>
+  </div>
+  <div class="card-footer text-muted bg-primary bg-gradien">
+    <%= f.submit "Stwórz", class:"btn btn-warning fs-4"%>
+  </div>
+<% end %>

@@ -1,0 +1,51 @@
+<br>
+<div class="container" style="font-family: 'Peralta', cursive;">
+  <div class="card border border-primary">
+    <div class="card-header text-black bg-primary bg-gradien">
+      <h1 class="d-inline text-white mx-4">
+        <%= @post.title %>
+      </h1>
+
+      <p class="d-inline float-end fs-4 text-white mx-4 my-2">
+        <%= @post.post_date.strftime("%k:%M %d/%m/%Y") %>
+      </p>
+      <p class="d-inline float-end fs-4 text-white mx-4 my-2">
+        <%= User.find(@post.user_id).nick %>
+      </p>
+    </div>
+    <div class="card-body">
+      <p class="card-text fs-5">
+        <%= @post.content %>
+      </p>
+      <div class="btn-group float-end" role="group" >
+        <% if user_signed_in? && current_user.id == @post.user_id %>
+          <%= link_to "Edytuj Post", edit_post_path(@post), class:"btn btn-warning float-end fs-6" %>
+          <%= link_to "Usuń", post_path(@post), class:"btn btn-warning float-end fs-6", data: {
+                              turbo_method: :delete,
+                              turbo_confirm: "Na pewno?"
+                              } %>
+        <% end %>
+        <%= link_to "Pdf", post_path(id: @post.id, format: :pdf), class:"btn btn-warning float-end fs-6" %>
+
+      </div>
+    </div>
+
+    <% if !@post.comments.empty? %>
+    <ul class="list-group list-group-flush bg-primary bg-gradien ">
+      <h3 class="text-white my-3 mx-3 text-dark">Komentarze</h3>
+      <li class="list-group-item bg-gradien">
+        <%= render @post.comments %>
+      </li>
+    </ul>
+    <% end %>
+    <div class="container-flex">
+      <% if user_signed_in? %>
+        <%= render 'admin/comments/form' %>
+      <% else %>
+        <p class="fs-4 text-white my-2"> Aby dodać komentarz trzeba się zalogować! </p>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+<br>

@@ -1,0 +1,21 @@
+<div class="card my-3 border border-primary">
+  <div class="card-body">
+    <h4 class="card-title text-muted d-inline ">
+      <%= User.find(comment.user_id).nick %>
+    </h4>
+    <h4 class="text-muted float-end d-inline">
+      <%= comment.comment_date.strftime("%k:%M %d/%m/%Y") %>
+    </h4>
+    <p class="card-text my-3">
+      <%= comment.content %>
+    </p>
+
+    <% if user_signed_in? && current_user.id == comment.user_id %>
+      <%= link_to "Usuń komentarz", [comment.post, comment],class:"btn btn-warning float-end fs-6", data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Na pewno?"
+                    } %>
+    <% end %>
+  </div>
+</div>
+<br>

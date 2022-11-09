@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "http://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"%>
+    <%= javascript_importmap_tags %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Peralta&family=Permanent+Marker&display=swap" rel="stylesheet">
+    </head>
+  <body>
+    <script src="http://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <div>
+      <%= render 'My_blog/header' %>
+    </div>
+    <% if notice %>
+      <div class=" container alert alert-success alert-dismissible fade show my-3" role="alert">
+        <strong><%= notice %></strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <% end %>
+    <% if alert %>
+    <div class="container alert alert-danger alert-dismissible fade show my-3" role="alert">
+      <strong><%= alert %></strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

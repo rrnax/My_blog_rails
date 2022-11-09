@@ -1,0 +1,12 @@
+<div class="container" style="font-family: 'Peralta', cursive;">
+  <div class="my-3">
+    <h1 class="d-inline">Aktualne Wpisy</h1>
+    <%= link_to " + Dodaj nowy", new_admin_post_path, class:"btn btn-warning float-end fs-5" %>
+    <% if @posts.empty? %>
+      <h3 class="text-danger my-4">Nie ma aktualnie żadnych postów...</h3>
+    <% end %>
+  </div>
+
+  <%= render @posts %>
+
+</div>

@@ -1,0 +1,37 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <br/>
+  <div class="container" style="font-family: 'Peralta', cursive; width: 450px;">
+    <div class="card">
+      <div class="card-header bg-primary text-black bg-gradien fs-2 text-center">
+        <h2>Zarejestruj się</h2>
+      </div>
+
+        <div class="card-body">
+          <div class="field my-5">
+            <%= f.text_field :nick, autofocus: true, autocomplete: "nick", class:"form-control", placeholder:"Nick" %>
+          </div>
+
+          <div class="field my-5">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder:"Email" %>
+          </div>
+
+          <div class="field my-5">
+            <%= f.password_field :password, autocomplete: "new-password", class:"form-control", placeholder:"Hasło" %>
+          </div>
+
+          <div class="field my-5">
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", placeholder:"Potwierdź hasło" %>
+          </div>
+
+      </div>
+      <div class="card-footer bg-primary text-black bg-gradien fs-2 text-center">
+
+          <div class="actions">
+            <%= f.submit "Zatwierdź", class:"btn btn-warning fs-5" %>
+          </div>
+
+      </div>
+    </div>
+  </div>
+<% end %>
