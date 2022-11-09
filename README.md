@@ -4,7 +4,7 @@ This app is about my vision of blogs app.
 
 Things you may want to cover:
 
-* Ruby version: 7
+* Rails version: 7
 
 * Bootstrap version: 5
 
